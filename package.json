@@ -1,0 +1,56 @@
+{
+  "name": "embed-code",
+  "version": "0.0.6",
+  "description": "A small component to render code with highlight.js in a terminal-like window.",
+  "main": "embed-code.js",
+  "scripts": {
+    "build": "webpack --mode production --profile",
+    "watch": "webpack --watch --mode development",
+    "stats": "webpack --mode production --json > stats.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jan Ole Suhr",
+  "license": "MIT",
+  "browserslist": [
+    "> 0.3%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.3.0",
+    "dotenv": "^8.2.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "to-string-loader": "^1.1.6",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "copy-text-to-clipboard": "^2.2.0",
+    "core-js": "^3.6.5",
+    "highlight.js": "^10.2.0"
+  },
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "js,jsx",
+      "quiet": false,
+      "legacyWatch": true
+    }
+  },
+  "scarfSettings": {
+    "enabled": false
+  },
+  "files": [
+    "embed-code.js"
+  ]
+}
