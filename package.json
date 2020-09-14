@@ -1,7 +1,11 @@
 {
   "name": "embed-code",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "A small component to render code with highlight.js in a terminal-like window.",
+  "homepage": "https://github.com/janole/embed-code#readme",
+  "keywords": [],
+  "author": "Jan Ole Suhr",
+  "license": "MIT",
   "main": "embed-code.js",
   "scripts": {
     "build": "webpack --mode production --profile",
@@ -9,15 +13,6 @@
     "stats": "webpack --mode production --json > stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Jan Ole Suhr",
-  "license": "MIT",
-  "browserslist": [
-    "> 0.3%",
-    "last 2 versions",
-    "Firefox ESR",
-    "not dead"
-  ],
   "devDependencies": {
     "@babel/core": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
@@ -50,6 +45,7 @@
   "scarfSettings": {
     "enabled": false
   },
+  "browserslist": "> 0.25%, last 2 versions, not dead",
   "files": [
     "embed-code.js"
   ]
