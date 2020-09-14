@@ -1,6 +1,6 @@
 {
   "name": "embed-code",
-  "version": "0.1.11",
+  "version": "0.1.13",
   "description": "A small component to render code with highlight.js in a terminal-like window.",
   "homepage": "https://github.com/janole/embed-code#readme",
   "keywords": [],

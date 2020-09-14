@@ -48,12 +48,13 @@
         margin: 0;
         padding: 0.5em;
         overflow-x: scroll;
+        overflow-wrap: normal;
         -webkit-overflow-scrolling: touch;
     }
 
     &code
     {
         line-height: 1.5;
-        font-family: Courier, monospace;
+        font-family: Courier, "Courier New", monospace;
     }
 }
