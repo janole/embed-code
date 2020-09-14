@@ -10,6 +10,7 @@
   "scripts": {
     "build": "webpack --mode production --profile",
     "watch": "webpack --watch --mode development",
+    "prepublishOnly": "npm run build",
     "stats": "webpack --mode production --json > stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
