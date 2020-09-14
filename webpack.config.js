@@ -2,8 +2,6 @@ require('dotenv').config()
 
 const path = require('path');
 
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
 module.exports = (env, argv) =>
 {
     const devtool = (argv && argv.mode === "production") ? undefined : "inline-source-map";
@@ -14,7 +12,7 @@ module.exports = (env, argv) =>
         },
         output: {
             filename: 'embed-code.js',
-            path: path.resolve(__dirname, process.env.WEBPACK_OUTPUT_PATH),
+            path: path.resolve(__dirname, process.env.WEBPACK_OUTPUT_PATH || "."),
         },
         module: {
             rules: [
@@ -47,11 +45,6 @@ module.exports = (env, argv) =>
         {
             "hints": false,
         },
-        /*
-        plugins: [
-            new CleanWebpackPlugin(),
-        ],
-        */
         devtool: devtool,
     };
 
