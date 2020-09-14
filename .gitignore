@@ -1,4 +1,10 @@
+# Editors
 **/.*.swp
 .history
 
+# Node
 node_modules
+
+# Build
+embed-code.js
+stats.json
