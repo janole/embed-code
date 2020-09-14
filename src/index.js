@@ -53,8 +53,6 @@ import styles from "./index.scss";
 
     const script = document.currentScript;
 
-    const { lang, code } = JSON.parse(script.innerText);
-
     const div = document.createElement("div");
     div.classList.add("hljs");
     div.classList.add("embed-code-container");
@@ -84,8 +82,16 @@ import styles from "./index.scss";
     const txt = document.createElement("code");
     txt.classList.add("embed-code-code");
 
-    const html = hljs.highlight(lang, code.replace(/^[\n\r]+/, "")).value;
-    txt.innerHTML = html;
+    try
+    {
+        const { lang, code } = JSON.parse(script.innerText);
+
+        txt.innerHTML = hljs.highlight(lang, code.replace(/^[\n\r]+/, "")).value;
+    }
+    catch (e)
+    {
+        txt.innerHTML = hljs.highlight(script.getAttribute("data-lang"), script.innerText.replace(/^[\n\r]+/, "")).value;
+    }
 
     pre.appendChild(txt);
     div.appendChild(pre);
