@@ -1,6 +1,3 @@
-// import "core-js/stable";
-// import "regenerator-runtime/runtime";
-
 import copy from "copy-text-to-clipboard";
 
 import hljs from "highlight.js/lib/core";
@@ -12,12 +9,29 @@ import bash from "highlight.js/lib/languages/bash";
 import xml from "highlight.js/lib/languages/xml";
 import css from "highlight.js/lib/languages/css";
 import json from "highlight.js/lib/languages/json";
+import markdown from "highlight.js/lib/languages/markdown";
+// import python from "highlight.js/lib/languages/python";
+import php from "highlight.js/lib/languages/php";
+// import nginx from "highlight.js/lib/languages/nginx";
+// import apache from "highlight.js/lib/languages/apache";
+import dockerfile from "highlight.js/lib/languages/dockerfile";
+import diff from "highlight.js/lib/languages/diff";
 
-import "highlight.js/scss/gml.scss";
-import "./index.scss";
+import gml from "highlight.js/scss/gml.scss";
+import styles from "./index.scss";
 
-(function () {
+(function ()
+{
+    if (typeof window.__embed_code_css === "undefined")
+    {
+        gml.use();
+        styles.use();
+
+        window.__embed_code_css = true;
+    }
+
     hljs.registerLanguage("js", js);
+    hljs.registerLanguage("javascript", js);
     hljs.registerLanguage("yaml", yaml);
     hljs.registerLanguage("yml", yaml);
     hljs.registerLanguage("ini", ini);
@@ -26,8 +40,16 @@ import "./index.scss";
     hljs.registerLanguage("sh", bash);
     hljs.registerLanguage("bash", bash);
     hljs.registerLanguage("html", xml);
+    hljs.registerLanguage("xml", xml);
     hljs.registerLanguage("css", css);
     hljs.registerLanguage("json", json);
+    hljs.registerLanguage("markdown", markdown);
+    // hljs.registerLanguage("python", python);
+    hljs.registerLanguage("php", php);
+    hljs.registerLanguage("dockerfile", dockerfile);
+    hljs.registerLanguage("diff", diff);
+    // hljs.registerLanguage("nginx", nginx);
+    // hljs.registerLanguage("apache", apache);
 
     const script = document.currentScript;
 
@@ -68,15 +90,4 @@ import "./index.scss";
     pre.appendChild(txt);
     div.appendChild(pre);
     script.parentNode.prepend(div);
-
-    /*
-    const gist = script.getAttribute("data-gist");
-    
-    axios.get(gist).then(r => {
-        const html = hljs.highlight("yaml", r.data).value;
-    
-        div.innerHTML = html;
-    
-    });
-    */
 })();

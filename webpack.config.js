@@ -4,7 +4,8 @@ const path = require('path');
 
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = (env, argv) => {
+module.exports = (env, argv) =>
+{
     const devtool = (argv && argv.mode === "production") ? undefined : "inline-source-map";
 
     config = {
@@ -33,7 +34,7 @@ module.exports = (env, argv) => {
                     test: /\.s[ac]ss$/i,
                     use: [
                         // Creates `style` nodes from JS strings
-                        { loader: 'style-loader', options: { injectType: "singletonStyleTag" } },
+                        { loader: 'style-loader', options: { injectType: "lazyStyleTag", } },
                         // Translates CSS into CommonJS
                         'css-loader',
                         // Compiles Sass to CSS
