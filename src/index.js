@@ -88,7 +88,14 @@ import styles from "./index.scss";
     }
     catch (e)
     {
-        data = { lang: script.getAttribute("data-lang"), code: script.innerText.replace(/^[\n\r]+/, ""), };
+        data =
+        {
+            lang: script.getAttribute("data-lang"),
+            code: script.innerText
+                .replace(/^[\n\r]+/, "")
+                .replace(/[ \t\r\n]+$/, "")
+                .replace(/&lt;\/script>/g, "</script>"),
+        };
     }
 
     txt.innerHTML = hljs.highlight(data.lang, data.code).value;
