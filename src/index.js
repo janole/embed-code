@@ -10,10 +10,7 @@ import xml from "highlight.js/lib/languages/xml";
 import css from "highlight.js/lib/languages/css";
 import json from "highlight.js/lib/languages/json";
 import markdown from "highlight.js/lib/languages/markdown";
-// import python from "highlight.js/lib/languages/python";
 import php from "highlight.js/lib/languages/php";
-// import nginx from "highlight.js/lib/languages/nginx";
-// import apache from "highlight.js/lib/languages/apache";
 import dockerfile from "highlight.js/lib/languages/dockerfile";
 import diff from "highlight.js/lib/languages/diff";
 
@@ -22,14 +19,6 @@ import styles from "./index.scss";
 
 (function ()
 {
-    if (typeof window.__embed_code_css === "undefined")
-    {
-        gml.use();
-        styles.use();
-
-        window.__embed_code_css = true;
-    }
-
     hljs.registerLanguage("js", js);
     hljs.registerLanguage("javascript", js);
     hljs.registerLanguage("yaml", yaml);
@@ -44,12 +33,17 @@ import styles from "./index.scss";
     hljs.registerLanguage("css", css);
     hljs.registerLanguage("json", json);
     hljs.registerLanguage("markdown", markdown);
-    // hljs.registerLanguage("python", python);
     hljs.registerLanguage("php", php);
     hljs.registerLanguage("dockerfile", dockerfile);
     hljs.registerLanguage("diff", diff);
-    // hljs.registerLanguage("nginx", nginx);
-    // hljs.registerLanguage("apache", apache);
+
+    if (typeof window.__embed_code_css === "undefined")
+    {
+        gml.use();
+        styles.use();
+
+        window.__embed_code_css = true;
+    }
 
     const script = document.currentScript;
 
@@ -59,7 +53,6 @@ import styles from "./index.scss";
 
     const top = document.createElement("div");
     top.classList.add("embed-code-top");
-    top.addEventListener("click", () => copy(code));
 
     const red = document.createElement("div");
     red.classList.add("embed-code-red-button");
@@ -73,6 +66,11 @@ import styles from "./index.scss";
     green.classList.add("embed-code-green-button");
     top.appendChild(green);
 
+    const click = document.createElement("div");
+    click.innerText = script.getAttribute("data-click-notice") || "Click to copy ...";
+    click.classList.add("embed-code-click");
+    top.appendChild(click);
+
     div.appendChild(top);
 
     const pre = document.createElement("pre");
@@ -82,16 +80,20 @@ import styles from "./index.scss";
     const txt = document.createElement("code");
     txt.classList.add("embed-code-code");
 
+    let data;
+
     try
     {
-        const { lang, code } = JSON.parse(script.innerText);
-
-        txt.innerHTML = hljs.highlight(lang, code.replace(/^[\n\r]+/, "")).value;
+        data = JSON.parse(script.innerText);
     }
     catch (e)
     {
-        txt.innerHTML = hljs.highlight(script.getAttribute("data-lang"), script.innerText.replace(/^[\n\r]+/, "")).value;
+        data = { lang: script.getAttribute("data-lang"), code: script.innerText.replace(/^[\n\r]+/, ""), };
     }
+
+    txt.innerHTML = hljs.highlight(data.lang, data.code).value;
+
+    top.addEventListener("click", () => copy(data.code));
 
     pre.appendChild(txt);
     div.appendChild(pre);
