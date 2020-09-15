@@ -1,11 +1,18 @@
 {
   "name": "embed-code",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "A small component to render code with highlight.js in a terminal-like window.",
-  "homepage": "https://github.com/janole/embed-code#readme",
-  "keywords": [],
-  "author": "Jan Ole Suhr",
   "license": "MIT",
+  "author": "Jan Ole Suhr <ole@mobileways.de> (https://janole.com)",
+  "homepage": "https://github.com/janole/embed-code#readme",
+  "repository": "janole/embed-code",
+  "bugs": "https://github.com/janole/embed-code/issues",
+  "keywords": [
+    "highlighting",
+    "highlight",
+    "syntax",
+    "screenshot"
+  ],
   "main": "embed-code.js",
   "scripts": {
     "build": "webpack --mode production --profile",
