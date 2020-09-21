@@ -1,6 +1,6 @@
 {
   "name": "embed-code",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "A small component to render code with highlight.js in a terminal-like window.",
   "license": "MIT",
   "author": "Jan Ole Suhr <ole@mobileways.de> (https://janole.com)",
