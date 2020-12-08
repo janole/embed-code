@@ -1,6 +1,6 @@
 {
   "name": "embed-code",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "A small component to render code with highlight.js in a terminal-like window.",
   "license": "MIT",
   "author": "Jan Ole Suhr <ole@mobileways.de> (https://janole.com)",
@@ -36,7 +36,7 @@
   "dependencies": {
     "copy-text-to-clipboard": "^2.2.0",
     "core-js": "^3.6.5",
-    "highlight.js": "^10.2.0"
+    "highlight.js": "^10.4.1"
   },
   "watch": {
     "build": {
